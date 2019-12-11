@@ -1,0 +1,22 @@
+// autocad
+#define ATRIM_STR "trim\n"
+#define AEXT_STR "extend\n"
+#define AMIRROR_STR "mirror\n"
+#define AROTATE_STR "rotate\n"
+#define AMOVE_STR "move\n"
+#define ACOPY_STR "copy\n"
+#define AFILLET_STR "fillet\n"
+#define AOFFSET_STR "offset\n"
+#define ALINE_STR "line\n"
+#define ADIMENSION_STR "dim\n"
+#define ARECTANGLE_STR "rectangle\n"
+#define ACIRCLE_STR "circle\n"
+#define APOLYLINE_STR "polyline\n"
+
+// revi\nt
+#define RCREATE_SIM_STR "cs\n"
+#define RTRIM_STR "tr\n"
+#define RMIRROR_STR "mm\n"
+#define RROTATE_STR "ro\n"
+#define RCOPY_STR "cc\n"
+#define RDETAILLINE_STR "dl\n"
