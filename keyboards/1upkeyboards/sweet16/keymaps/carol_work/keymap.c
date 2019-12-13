@@ -72,11 +72,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 }
             } 
             break;
-            // if (record->event.pressed) {
-            //     SEND_STRING(ATRIM_STR);
-            // }
-            // return false;
-            // break;
         case A_EXT:
             if (record->event.pressed) {
                 SEND_STRING(AEXT_STR);
