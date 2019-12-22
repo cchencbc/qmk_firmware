@@ -35,7 +35,8 @@ enum { TD_SNGL_DBL_QUOTE = 0 };
 
 qk_tap_dance_action_t tap_dance_actions[] = {
     // Tap once for single quote, and twice for double quote
-    [TD_SNGL_DBL_QUOTE] = ACTION_TAP_DANCE_DOUBLE(KC_QUOTE, KC_DOUBLE_QUOTE)};
+    [TD_SNGL_DBL_QUOTE] = ACTION_TAP_DANCE_DOUBLE(KC_QUOTE, KC_DOUBLE_QUOTE)
+};
 
 uint16_t key_timer;
 
