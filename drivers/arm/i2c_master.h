@@ -27,10 +27,6 @@
 #include "ch.h"
 #include <hal.h>
 
-#if defined(STM32F1XX) || defined(STM32F1xx) || defined(STM32F2xx) || defined(STM32F4xx) || defined(STM32L0xx) || defined(STM32L1xx)
-#    define USE_I2CV1
-#endif
-
 #ifdef I2C1_BANK
 #    define I2C1_SCL_BANK I2C1_BANK
 #    define I2C1_SDA_BANK I2C1_BANK
@@ -62,14 +58,6 @@
 #        define I2C1_DUTY_CYCLE STD_DUTY_CYCLE /* FAST_DUTY_CYCLE_2 */
 #    endif
 #else
-// The default PAL alternate modes are used to signal that the pins are used for I2C
-#    ifndef I2C1_SCL_PAL_MODE
-#        define I2C1_SCL_PAL_MODE 4
-#    endif
-#    ifndef I2C1_SDA_PAL_MODE
-#        define I2C1_SDA_PAL_MODE 4
-#    endif
-
 // The default timing values below configures the I2C clock to 400khz assuming a 72Mhz clock
 // For more info : https://www.st.com/en/embedded-software/stsw-stm32126.html
 #    ifndef I2C1_TIMINGR_PRESC
@@ -91,6 +79,16 @@
 
 #ifndef I2C_DRIVER
 #    define I2C_DRIVER I2CD1
+#endif
+
+#ifndef USE_GPIOV1
+// The default PAL alternate modes are used to signal that the pins are used for I2C
+#    ifndef I2C1_SCL_PAL_MODE
+#        define I2C1_SCL_PAL_MODE 4
+#    endif
+#    ifndef I2C1_SDA_PAL_MODE
+#        define I2C1_SDA_PAL_MODE 4
+#    endif
 #endif
 
 typedef int16_t i2c_status_t;
