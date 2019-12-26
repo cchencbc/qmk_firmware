@@ -59,17 +59,17 @@ enum {
 qk_tap_dance_action_t tap_dance_actions[] = {
     // Tap once for single quote, and twice for double quote
     [TD_SNGL_DBL_QUOTE] = ACTION_TAP_DANCE_DOUBLE(KC_QUOTE, KC_DOUBLE_QUOTE),
-    [TD_ENTER_LAYERAC] = ACTION_TAP_DANCE_DOUBLE(KC_ENT, TO(_AUTOCAD)),
+    [TD_ENTER_LAYERAC] = ACTION_TAP_DANCE_LAYER_MOVE(KC_ENT, _AUTOCAD),
     [TD_PLUS_MINUS] = ACTION_TAP_DANCE_DOUBLE(KC_PLUS,KC_MINS),
     [TD_AST_SLSH] = ACTION_TAP_DANCE_DOUBLE(KC_ASTR,KC_SLSH),
     [TD_EQUAL_QUESTION] = ACTION_TAP_DANCE_DOUBLE(KC_KP_EQUAL,KC_QUESTION),
-    [TD_ENTER_LAYERNUM] = ACTION_TAP_DANCE_DOUBLE(KC_ENT, TO(_NUMPAD)),
+    [TD_ENTER_LAYERNUM] = ACTION_TAP_DANCE_LAYER_MOVE(KC_ENT, _NUMPAD),
     [TD_7_X] = ACTION_TAP_DANCE_DOUBLE(KC_7,KC_X),
     [TD_LINE_PL] = ACTION_TAP_DANCE_DOUBLE(A_LINE,A_POLYLINE),
     [TD_REC_CIRCLE] = ACTION_TAP_DANCE_DOUBLE(A_RECTANGLE,A_CIRCLE),
     [TD_TEXT_DIM] = ACTION_TAP_DANCE_DOUBLE(A_TEXT,A_DIMENSION),
     [TD_HATCH_CHSPACE] = ACTION_TAP_DANCE_DOUBLE(A_HATCH,A_CHSPACE),
-    [TD_DOT_REVIT] = ACTION_TAP_DANCE_DOUBLE(KC_DOT,TO(_REVIT))
+    [TD_DOT_REVIT] = ACTION_TAP_DANCE_LAYER_MOVE(KC_DOT, _REVIT)
 };
 
 uint16_t key_timer;
@@ -132,11 +132,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 }
             } 
             break;
-            // if (record->event.pressed) {
-            //     SEND_STRING(AROTATE_STR);
-            // }
-            // return false;
-            // break;
         case A_MOVE:
             if (record->event.pressed) {
                 SEND_STRING(AMOVE_STR);
